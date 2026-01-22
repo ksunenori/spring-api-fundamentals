@@ -6,13 +6,12 @@ import com.ksunenori.store.mappers.UserMapper;
 import com.ksunenori.store.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @Getter
@@ -24,23 +23,17 @@ public class UserController {
     private final UserMapper userMapper;
 
     @GetMapping()
-    public Iterable<UserDto> getUsers() {
-        return userRepository.findAll()
+    public Iterable<UserDto> getUsers(
+            @RequestParam(required = false, defaultValue = "", name = "sort") String sort) {
+        if (!Set.of("name", "email").contains(sort)) {
+            sort = "name";
+        }
+        return userRepository.findAll(Sort.by(sort))
                 .stream()
                 .map(userMapper::toDto)
                 .toList();
     }
 
-    //Manual Mapping
-//        @GetMapping()
-//    public Iterable<UserDto> getUsers() {
-//        return userRepository.findAll()
-//                .stream()
-//                .map(user -> new UserDto(user.getId(), user.getName(), user.getEmail()))
-//                .toList();
-//    }
-//
-//
     @GetMapping("/{id}")
     public ResponseEntity<UserDto> getUserById(@PathVariable long id) {
         var user = userRepository.findById(id).orElse(null);
@@ -51,17 +44,4 @@ public class UserController {
 
         return ResponseEntity.ok(userMapper.toDto(user));
     }
-    // Manual Mapping
-//        @GetMapping("/{id}")
-//    public ResponseEntity<UserDto> getUserById(@PathVariable long id) {
-//        var user = userRepository.findById(id).orElse(null);
-//
-//        if (user == null) {
-//            return ResponseEntity.notFound().build();
-//        }
-//
-//        var userDto = new UserDto(user.getId(), user.getName(), user.getEmail());
-//        return ResponseEntity.ok(userDto);
-//    }
-//
 }
