@@ -56,20 +56,8 @@ public class CartController {
             return ResponseEntity.badRequest().build(); //dont return not found error bc productId comes from requestBody not url
         }
 
-        var cartItem = cart.getItems().stream()
-                .filter(items -> items.getProduct().getId().equals(product.getId()))
-                .findFirst()
-                .orElse(null);
+        var cartItem = cart.addItem(product);
 
-        if (cartItem != null) {
-            cartItem.setQuantity(cartItem.getQuantity() + 1);
-        } else {
-            cartItem = new CartItem();
-            cartItem.setProduct(product);
-            cartItem.setQuantity(1);
-            cartItem.setCart(cart);
-            cart.getItems().add(cartItem);
-        }
         cartRepository.save(cart);
 
         var cartItemDto = cartMapper.toDto(cartItem);
@@ -99,10 +87,7 @@ public class CartController {
                     Map.of("error", "Cart not found.")
             );
         }
-            var cartItem = cart.getItems().stream()
-                    .filter(items -> items.getProduct().getId().equals(productId))
-                    .findFirst()
-                    .orElse(null);
+        var cartItem = cart.getItem(productId);
         if (cartItem == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
                     Map.of("error", "Product was not found in the cart.")
