@@ -124,7 +124,9 @@
                 <version>11.20.2</version>
                 <configuration>
                     <url>jdbc:mysql://localhost:3306/store_api?createDatabaseIfNotExist=true</url>
+                    <!--suppress UnresolvedMavenProperty -->
                     <user>${env.DB_USER}</user>
+                    <!--suppress UnresolvedMavenProperty -->
                     <password>${env.DB_PASSWORD}</password>
                     <cleanDisabled>true</cleanDisabled>
                 </configuration>
