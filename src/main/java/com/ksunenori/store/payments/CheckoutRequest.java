@@ -1,4 +1,4 @@
-package com.ksunenori.store.dtos;
+package com.ksunenori.store.payments;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
