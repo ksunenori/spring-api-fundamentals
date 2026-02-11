@@ -13,12 +13,12 @@
 
     <groupId>com.ksunenori</groupId>
     <artifactId>store</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>store</name>
     <description>store</description>
 
     <properties>
-        <java.version>25</java.version>
+        <java.version>21</java.version>
         <mapstruct.version>1.6.3</mapstruct.version>
     </properties>
 
@@ -54,21 +54,18 @@
             <artifactId>flyway-mysql</artifactId>
         </dependency>
 
-        <!-- Match the course style: annotationProcessor -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>annotationProcessor</scope>
         </dependency>
 
-        <!-- MapStruct runtime API -->
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${mapstruct.version}</version>
         </dependency>
 
-        <!-- MapStruct codegen -->
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>
@@ -123,6 +120,24 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>1.6.3</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
