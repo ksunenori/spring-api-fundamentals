@@ -19,10 +19,10 @@ import java.util.Optional;
 @Service
 public class StripePaymentGateway implements PaymentGateway {
 
-    @Value("${spring.websiteUrl}")
+    @Value("${websiteUrl}")
     private String websiteUrl;
 
-    @Value("${spring.stripe.webhookSecretKey}")
+    @Value("${stripe.webhookSecretKey}")
     private String webhookSecretKey;
 
     @Override

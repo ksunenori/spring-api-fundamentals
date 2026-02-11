@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class StripeConfig {
-    @Value("${spring.stripe.secretKey}")
+    @Value("${stripe.secretKey}")
     private String secretKey;
 
     @PostConstruct //Tells Spring to call this method when this bean is created
