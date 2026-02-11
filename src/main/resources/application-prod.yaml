@@ -1,4 +1,8 @@
 spring:
   datasource:
     url: ${SPRING_DATASOURCE_URL}
+  flyway:
+    enabled: true
+  jpa:
+    defer-datasource-initialization: true
 websiteUrl: https://mystore.com
