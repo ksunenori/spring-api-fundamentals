@@ -1,8 +1,8 @@
 package com.ksunenori.store.payments;
 
-import com.ksunenori.store.dtos.ErrorDto;
-import com.ksunenori.store.exceptions.CartEmptyException;
-import com.ksunenori.store.exceptions.CartNotFoundException;
+import com.ksunenori.store.common.ErrorDto;
+import com.ksunenori.store.carts.CartEmptyException;
+import com.ksunenori.store.carts.CartNotFoundException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

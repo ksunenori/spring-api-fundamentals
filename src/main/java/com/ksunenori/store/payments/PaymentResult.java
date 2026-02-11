@@ -1,6 +1,6 @@
 package com.ksunenori.store.payments;
 
-import com.ksunenori.store.entities.PaymentStatus;
+import com.ksunenori.store.orders.PaymentStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

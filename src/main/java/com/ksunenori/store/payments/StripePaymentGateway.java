@@ -1,8 +1,8 @@
 package com.ksunenori.store.payments;
 
-import com.ksunenori.store.entities.Order;
-import com.ksunenori.store.entities.OrderItem;
-import com.ksunenori.store.entities.PaymentStatus;
+import com.ksunenori.store.orders.Order;
+import com.ksunenori.store.orders.OrderItem;
+import com.ksunenori.store.orders.PaymentStatus;
 import com.stripe.exception.SignatureVerificationException;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Event;

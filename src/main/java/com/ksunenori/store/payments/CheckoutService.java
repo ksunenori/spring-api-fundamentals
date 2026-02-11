@@ -1,12 +1,12 @@
 package com.ksunenori.store.payments;
 
-import com.ksunenori.store.entities.Order;
-import com.ksunenori.store.exceptions.CartEmptyException;
-import com.ksunenori.store.exceptions.CartNotFoundException;
-import com.ksunenori.store.repositories.CartRepository;
-import com.ksunenori.store.repositories.OrderRepository;
-import com.ksunenori.store.services.AuthService;
-import com.ksunenori.store.services.CartService;
+import com.ksunenori.store.orders.Order;
+import com.ksunenori.store.carts.CartEmptyException;
+import com.ksunenori.store.carts.CartNotFoundException;
+import com.ksunenori.store.carts.CartRepository;
+import com.ksunenori.store.orders.OrderRepository;
+import com.ksunenori.store.auth.AuthService;
+import com.ksunenori.store.carts.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

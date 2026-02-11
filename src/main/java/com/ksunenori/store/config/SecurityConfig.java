@@ -1,7 +1,7 @@
 package com.ksunenori.store.config;
 
-import com.ksunenori.store.entities.Role;
-import com.ksunenori.store.filters.JwtAuthenticationFilter;
+import com.ksunenori.store.user.Role;
+import com.ksunenori.store.auth.JwtAuthenticationFilter;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

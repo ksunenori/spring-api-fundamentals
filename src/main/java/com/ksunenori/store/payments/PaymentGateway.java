@@ -1,6 +1,6 @@
 package com.ksunenori.store.payments;
 
-import com.ksunenori.store.entities.Order;
+import com.ksunenori.store.orders.Order;
 
 import java.util.Optional;
 
